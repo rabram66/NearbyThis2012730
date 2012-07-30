@@ -1,0 +1,55 @@
+<div class='admin-content'>
+  <p id="notice"><%= notice %></p>
+  <p>
+    <b>Business Name:</b>
+    <%= @location.name %>
+  </p>
+  <p>
+    <b>Street Address:</b>
+    <%= @location.address %>
+  </p>
+  <p>
+    <b>City:</b>
+    <%= @location.city %>
+  </p>
+  <p>
+    <b>State:</b>
+    <%= @location.state %>
+  </p>
+  <p>
+    <b>Phone:</b>
+    <%= number_to_phone @location.phone_number, :area_code => true %>
+  </p>
+  <p>
+    <b>General Type:</b>
+    <%= @location.general_type %>
+  </p>
+  <p>
+    <b>Specific Type:</b>
+    <%= @location.types %>
+  </p>
+  <p>
+    <b>Twitter Name:</b>
+    <%= @location.twitter_name || "UNKNOWN" %>
+  </p>
+  <p id='twitter-status'>
+    <b>Latest Twitter Status:</b>
+    <blockquote><%= @location.twitter_status.text if @location.twitter_status %></blockquote>
+  </p>
+  <p>
+    <b>Facebook Page:</b>
+    <%= @location.facebook_page_id || "UNKNOWN" %>
+  </p>
+  <p id='facebook-status'>
+    <b>Latest Facebook Post</b>
+    <blockquote><%= @location.facebook_status.text if @location.facebook_status %></blockquote>
+  </p>
+  <p>
+    <b>Google Places Reference ID:</b>
+    <blockquote><%= @location.reference %></blockquote>
+  </p>
+
+  <%= link_to 'Edit', edit_location_path(@location) %> |
+  <%= button_to 'Delete', @location, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to 'Back', locations_path %>
+</div>

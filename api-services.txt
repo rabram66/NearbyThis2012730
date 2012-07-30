@@ -1,0 +1,168 @@
+General Usage Notes
+===================
+The following API URLs must specify the accepted by content type using one of the following methods:
+
+1. By passing an Accept header with a value of 'application/json'
+2. By appending '.json' to the URL
+3. By adding a query parameter of 'format=json' to the URL
+
+==============================================================================
+Discovery
+------------------------------------------------------------------------------
+http://nearbythis.com/api/
+
+Purpose:
+
+The Discovery URL provides an initial starting point for API access. Though not required, utilizing the Discovery URL to navigate to list URLS isolates the consuming service from API changes.
+
+{
+  "links":{
+    "places":"http://nearbythis.com/api/places",
+    "events":"http://nearbythis.com/api/events"
+  }
+}
+
+==============================================================================
+Places List
+------------------------------------------------------------------------------
+Purpose:
+List of places based on a geographic coordinates. The representation is a JSON object containing two objects: 'coordinates' and 'places'. 'coordinates' lists the geographic coordinates used for the query. 'places' is an array of objects; each representing a place.
+
+Each place contains:
+  - links: A set of links; the link named 'place' provides a navigable URL to the place details
+  - source: The type of place 'Place' is an external place from Google places, 'Location' is an internal place from NearbyThis's database
+  - name: Name of the place
+  - categories: An array of categories that the location belongs; generally there is only one; but, in theory, there could be more than one. Possible values are Eat, Shop, Play, Spa
+  - recent_tweet: a boolean field indicating if there is a recent tweet for the place
+  - location: the street address, city, and state for the place; some of these fields may be null
+  - geography: the latitude and longitude of the place, along with the distance from the coordinates of search (in miles)
+
+Base URL: 
+http://nearbythis.com/api/places/
+
+Parameters (input):
+lat : Latitude (e.g. -84.8383)
+lng : Longitude (e.g 35.8484)
+category: 'eat', 'shop', 'play', or 'spa' (optional: no more than one category can be specified)
+
+Example Full URL:
+http://nearbythis.com/api/places?lat=33.928797&lng=-84.281831
+
+Representation output:
+{
+    "coordinates": {
+        "latitude": 33.928797,
+        "longitude": -84.281831
+    },
+    "places": [
+        {
+            "links": {
+                "place": "http://localhost:3000/api/places/CmRdAAAApr2AKr687nvCaOilWKeTeeY48h2HsitJrQAr-hJx_uLopXUsn7jtLmljpyzQkzT_eR3Nz0gtLWleyolk0-JZwE2ydEsDwcKfNbR-HZ8C0c04geDq9JkWdCLopDYWQNa9EhAsgPMD_xAxlTOfi5qEg7G7GhRIdeX2mtSRHHi3fCg7BtbjCfCxpw"
+            },
+            "source": "Place",
+            "name": "Bangles R Us",
+            "categories": [
+                "Eat"
+            ],
+            "recent_tweet": false,
+            "location": {
+                "address": null,
+                "city": null,
+                "state": null
+            },
+            "geography": {
+                "latitude": 33.928342,
+                "longitude": -84.2818489,
+                "distance": 0.031463081337843514
+            }
+        },
+        {
+            "links": {
+                "place": "http://localhost:3000/api/places/CkQxAAAAJRTc2vzxWLl6pkYoaI4U5YkgQ52xfC3AzbRjeGeWZDoUbU43NA29cjxGMmH2cLL7-JXrjFod-HHWKzTKbPhx5RIQVrIUVFDxR_JIoj2PRbo3ZhoUDGy37WKejQ7JAv_w5LHTH60CYD4"
+            },
+            "source": "Location",
+            "name": "Frugles R Us",
+            "categories": [
+                "Eat"
+            ],
+            "recent_tweet": false,
+            "location": {
+                "address": "2572 Binghamton Drive",
+                "city": "Dunwoody",
+                "state": "GA"
+            },
+            "geography": {
+                "latitude": 33.928393,
+                "longitude": -84.282146,
+                "distance": 0.03324590025829605
+            }
+        }
+    ]
+}
+
+==============================================================================
+Places Details
+------------------------------------------------------------------------------
+Purpose:
+Return complete details about a place including phone number, most recent
+twitter and facebook statuses, as well as the most recent twitter mentions.
+
+Base URL:
+http://nearbythis.com/api/places/:reference
+
+Parameters (input):
+  :reference -  the reference ID; a these URLs are at
+
+Example URL:
+http://nearbythis.com/api/places/CkQxAAAAkxD6kpjvTUtWo0zD-NcD4WrGGcRT6As0eQZZDPcz26m0vftFkXCFeBJcCLxDC7QlhcFrKlxUS-9WbS93L5JIihIQ68J33vL_CxRFTWNR0BbJgBoUHBfOMfTvL5mMgeclfs3nqRCy-SE
+
+
+Representation output:
+
+{
+    "place": {
+        "source": "Location",
+        "name": "Mellow Mushroom Pizza Bakers",
+        "phone_number": "7709340909",
+        "reference": "CkQxAAAAkxD6kpjvTUtWo0zD-NcD4WrGGcRT6As0eQZZDPcz26m0vftFkXCFeBJcCLxDC7QlhcFrKlxUS-9WbS93L5JIihIQ68J33vL_CxRFTWNR0BbJgBoUHBfOMfTvL5mMgeclfs3nqRCy-SE",
+        "categories": [
+            "Eat"
+        ],
+        "recent_tweet": false,
+        "twitter_status": {
+            "text": "@ddmcbain @samblanton I almost spilled my drink reading this! Awesome!",
+            "created_at": "2012-02-10T23:32:38+00:00",
+            "follow_url": "http://twitter.com/MellowMushroom/status/168115185540792320"
+        },
+        "facebook_status": {
+          "text": "Eat at Mellow Mushroom"
+        },
+        "location": {
+            "address": "3201 Tucker Norcross Rd",
+            "city": "Tucker",
+            "state": "GA"
+        },
+        "geography": {
+            "latitude": 33.8835679,
+            "longitude": -84.218804
+        },
+        "twitter_mentions": [
+             {
+                 "text": "@troutbumtodd yes. Both beverage superstores and @MellowMushroom in Suwanee. General Admin only.",
+                 "screen_name": "Suwaneebeerfest",
+                 "created_at": "2012-02-10T17:33:42+00:00",
+                 "follow_url": "http://twitter.com/suwaneebeerfest/status/168024857957769216"
+             },
+             {
+                 "text": "It's basically drinking coffee, right?  — Drinking a Breakfast Stout by @foundersbrewing at @MellowMushroom  — http://t.co/8sWPUTAY",
+                 "screen_name": "Sean Eats Atla Nta",
+                 "created_at": "2012-02-10T16:46:51+00:00",
+                 "follow_url": "http://twitter.com/SeanEatsAtlaNta/status/168013068486459392"
+             }
+        ]
+    }
+}
+
+  
+
+  

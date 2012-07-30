@@ -1,0 +1,22 @@
+anonymous:
+  name: Dunwoody Craft Fair
+  address: 5488 Chamblee Dunwoody Road
+  city: Dunwoody
+  state: GA
+  start_date: 2011-10-18 10:08:37
+  end_date: 2011-10-18 10:08:37
+  description: MyText
+  latitude: 33.7489954
+  longitude: -84.3879824
+
+promoted:
+  name: Stage Door Players
+  address: 1426 Dunwoody Village Parkway
+  city: Dunwoody
+  state: GA
+  start_date: 2011-10-18 10:08:37
+  end_date: 2011-10-18 10:08:37
+  description: MyText
+  latitude: 33.7489954
+  longitude: -84.3879824
+  user: promoter

@@ -1,0 +1,121 @@
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
+<%= stylesheet_link_tag "ui-lightness/jquery-ui-1.8.16.custom.css" %>
+<%= stylesheet_link_tag "events.css" %>
+<%= javascript_include_tag "jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon" %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var input = $('#event_full_address')[0];
+    autocomplete = new google.maps.places.Autocomplete(input);
+    var picker_options = {
+      ampm: true,
+      timeFormat: 'h:mm tt',
+      stepMinute: 10
+    };
+    $('#event_start_date').datetimepicker(
+      jQuery.extend({minDate: new Date()},picker_options)
+    );
+    // $('#event_end_date').datetimepicker(
+    //   jQuery.extend({minDate: new Date()},picker_options)
+    // );
+    $('#event_end_date').timepicker(picker_options);
+
+    if($('#event_end_date').val() == '') {
+      $('#add-end-time').show();
+      $('#remove-end-time').hide();
+      $('#event_end_date').hide();
+    } else {
+      $('#add-end-time').hide();
+      $('#remove-end-time').show();
+      $('#event_end_date').show();
+    }
+    
+    $('#add-end-time').click( function() {
+      $(this).hide();
+      $('#remove-end-time').show();
+      $('#event_end_date').fadeIn();
+    });
+
+    $('#remove-end-time').click( function() {
+      $(this).hide();
+      $('#add-end-time').show();
+      $('#event_end_date').fadeOut();
+      $('#event_end_date').val('');
+    });
+  });
+</script>
+
+  <%= form_for @event, :html => {:multipart => true} do |f| %>
+    <% if @event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+        <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <fieldset id='event-detail-fieldset'>
+      <ul id='event-detail-fields'>
+        <li>
+          <%= f.label :name, '* Event Name' %><br/>
+          <%= f.text_field :name, :class => 'input_form_field' %>
+        </li>
+        <li>
+          <%= f.label :start_date, '* Date and Time' %></br>
+          <%= f.text_field :start_date, :value => @event.start_date ? @event.start_date.localtime.stamp('05/10/2011 1:00 am') : '', :class => 'input_form_field' %>
+          <a id='add-end-time' href='javascript:void(0)'>Add end time</a>
+          <a id='remove-end-time' href='javascript:void(0)'>Remove end time</a>
+          <span class='end-date-and-time'>
+            <%= f.text_field :end_date, :value => @event.end_date ? @event.end_date.localtime.stamp("1:00 am").strip : '', :class => 'input_form_field' %>
+          </span>
+        </li>
+        <li>
+          <%= f.label :venue, 'Venue / Location' %><br/>
+          <%= f.text_field :venue, :class => 'input_form_field' %>
+        </li>
+        <li>
+          <%= f.label :full_address, '* Address' %><br/>
+          <%= f.text_field :full_address, :class => 'input_form_field' %>
+        </li>
+        <li>
+          <%= f.label :category, 'Type of Event' %><br/>
+          <%= f.select :category, Event::CATEGORIES, {}, :class => 'input_list_menu' %>
+        </li>
+        <li>
+          <%= f.label :conference, 'Conference Session?' %><br/>
+          <%= f.check_box :conference, :class => 'input_form_field' %>
+        </li>
+        <li>
+          <%= f.label :description, 'Description' %><br/>
+          <%= f.text_area :description, :class => 'input_form_field' %>
+        </li>
+        <li>
+          <%= f.label :tags, 'Tags' %><br/>
+          <%= f.text_field :tags, :class => 'input_form_field' %>
+        </li>
+        <li class='event-flyer'>
+          <%= f.label :flyer, 'Flyer' %>
+          <%= f.file_field :flyer, :class => 'input_form_field' %>
+          <p>
+            <% unless @event.flyer_url.blank? %>
+              <%= link_to "Current Flyer", @event.flyer_url, :target => :new %>
+            <% else %>
+              No Current Flyer
+            <% end %>
+          </p>
+        </li>
+        <% unless @event.flyer_url.blank? %>
+          <li>
+            <%= f.label :remove_flyer, 'Remove Flyer?' %><br/>
+            <%= f.check_box :remove_flyer, :class => 'input_form_field' %>
+          </li>
+        <% end -%>
+      </ol>
+      <%= f.hidden_field :user_id %>
+    </fieldset>
+    <%= f.submit %>
+  <% end %>

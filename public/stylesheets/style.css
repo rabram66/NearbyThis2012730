@@ -1,0 +1,1047 @@
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, figure, footer, header, hgroup, nav, section {display: block;}
+
+ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none;}
+a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline;}
+del {text-decoration: line-through;}
+abbr[title], dfn[title] {border-bottom: 1px dotted #000; cursor: help;}
+
+body {line-height:1;}
+
+/* tables still need cellspacing="0" in the markup */
+table {border-collapse: collapse; border-spacing: 0;}
+th {font-weight: bold; vertical-align: bottom;}
+td {font-weight: normal; vertical-align: top;}
+hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
+
+/* Form Elements */
+input, select {vertical-align: middle;}
+input[type="radio"] {vertical-align: text-bottom;}
+input[type="checkbox"] {vertical-align: bottom;}
+.ie6 input {vertical-align: text-bottom;}
+select, input, textarea {font: 99% sans-serif;}
+
+a:hover, a:active {outline: none;}
+small {font-size: 85%;}
+strong, th {font-weight: bold;}
+td, td img {vertical-align: top;} 
+
+sub, sup {font-size: 75%; line-height: 0; position: relative;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+/* hand cursor on clickable elements */
+.clickable, label, input[type=button], input[type=submit], button {cursor: pointer;}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {margin: 0;}
+
+/* make buttons play nice in IE */
+button {width: auto; overflow: visible;}
+
+a, img a, img, a img {border:0; outline:0; text-decoration:none;}
+
+/* FLOAT-elements */
+.fltleft {float:left;}
+.fltright {float:right;}
+
+/* let's clear some floats */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }  
+.clearfix:after { clear: both; }  
+
+
+/* only to clear floats - to be used with any class as addition */
+.clear {
+  clear: both;
+  }
+  
+/* clear float with blank <div>or <br>*/
+.clrflt {
+  clear:both;
+  line-height:1px;
+  font-size:1px;
+  overflow: hidden;
+  }
+
+/* MAIN */
+body {
+  background:url(/images/body_bg.jpg) repeat;
+  font-family:'Helvetica';
+  font-size:12px;
+  font-weight:normal;
+  color:#000000;
+  outline:0;
+  }
+
+.wrapper
+{
+  width:964px;
+  margin:0 auto;
+  border-bottom:#bcbcbc 1px solid;
+  border-right:#bcbcbc 1px solid;
+  border-left:#bcbcbc 1px solid;
+}
+
+.header
+{
+  background:url(/images/header_bg.jpg) repeat-x left top;
+  height:38px;
+  padding:10px 0 0 20px;
+}
+
+div#start-splash {
+  background:url(/images/new_splash_screen_bkgd.png);
+  height: 371px;
+}
+
+div#discover-button {
+  text-align:center;
+  padding-top: 130px;
+}
+
+div#splash-social-buttons {
+  float:right;
+  padding-right: 90px;
+  padding-top: 78px;
+}
+
+div#splash-social-buttons a {
+  padding-left:10px;
+}
+
+.logo
+{
+  float:left;
+}
+
+.top_nav
+{
+  float:right;
+  padding-top:6px;
+}
+
+.top_nav ul
+{
+}
+
+.top_nav ul li
+{
+  float:left;
+  font-size:14px;
+  color:#d37801;
+  font-weight:bold;
+  text-transform:uppercase;
+}
+
+.top_nav ul li a
+{
+  color:#d37801;
+  text-decoration:none;
+  padding:0 20px 0 0;
+}
+
+.content
+{
+  background:#fff;
+  padding:0 0 25px 0;
+  border-bottom:#e0dfdf 1px solid;
+}
+
+.content_left
+{
+  width:603px;
+  float:left;
+  border-right:#e0dfdf 1px solid;
+}
+
+.left_top
+{
+  padding:22px 0 15px 20px;
+  border-bottom:#e0dfdf 1px solid;
+}
+
+.left_top h2
+{
+  font-size:24px; 
+  color:#4d4d4d;
+  padding:0 0 10px 0;
+}
+
+.left_top h2 span
+{
+  padding-left:10px;
+}
+
+.left_top h2 strong
+{
+  padding-left:2px;
+}
+
+.left_top h3
+{
+  font-size:14px; 
+  color:#979796;
+  font-weight:normal;
+}
+
+.left_top h3 a
+{
+  color:#31b2e5;
+  padding-left:4px;
+  text-decoration:underline;
+}
+
+.left_top h3 .phone-number
+{
+  color: #EE941F;
+  float: right;
+  margin-right: 20px;
+}
+
+.top_box
+{
+  padding:10px 0 10px 20px;
+  border-bottom:#e0dfdf 1px solid;
+}
+
+.top_box img
+{
+  float:left;
+  margin-right:8px;
+}
+
+.top_box p
+{
+  font-size:14px; 
+  color:#979796;
+  font-style:italic;
+  line-height:18px;
+  padding-top:8px;
+  margin-right: 10px;
+}
+
+.top_box p a
+{
+  color:#31b2e5;
+  text-decoration:none;
+}
+
+.threed_box
+{
+  padding:10px 0 10px 20px;
+  border-bottom:#e0dfdf 1px solid;
+}
+
+.threed_box img
+{
+  float:left;
+  padding-right:8px;
+}
+
+.threed_box p
+{
+  font-size:14px;
+  height:48px;
+  line-height:18px; 
+  color:#979796;
+  font-style:italic;
+  padding-top: 8px;
+}
+
+.map_area
+{
+  padding:20px 0 20px 20px;
+  border-bottom:#e0dfdf 1px solid;
+}
+
+.map_pic
+{
+  margin-bottom:20px;
+  width:560px;
+}
+
+.black_pic
+{
+  width:468px;
+  margin-left:48px;
+}
+
+.sidebar
+{
+  width:360px;
+  float:right;
+  padding-top: 20px;
+}
+
+#places-list-sidebar {
+  padding-top: 0px;
+}
+
+#places-list-sidebar h3 {
+  margin: 0;
+  color: white;  
+}
+
+.sidebar h2
+{
+  color:#4d4d4d;
+  font-size:18px;
+  padding:0 0 16px 18px;
+  border-bottom:#e0dfdf 1px solid;
+}
+
+.twitter_box
+{
+  padding:20px 42px 18px 20px;
+  border-bottom:#e0dfdf 1px solid;
+}
+
+.twitter_box_pic
+{
+  float:left;
+  width:48px;
+}
+
+.twitter_box_txt
+{
+  float:right;
+  width:234px;
+}
+
+.twitter_box_txt h3
+{
+  font-size:14px;
+  color:#31b2e5;
+  padding-bottom:10px;
+}
+
+.twitter_box_txt p
+{
+  font-size:14px;
+  color:#979796;
+  line-height:19px;
+}
+
+.twitter_box_txt p a
+{
+  color:#39b7e9;
+  display:block;
+  text-decoration:none;
+}
+
+.twitter_box_txt span.tweeted-at
+{
+  color:#cecece;
+  font-size:12px;
+  padding-top:3px;
+  display:block;
+}
+
+.sidebar h3 {
+  font-size: 18px;
+  padding: 8px;
+  margin: 2px;
+  font-weight: normal;
+}
+
+#events-heading {
+  background-color: #3fbaeb;
+}
+
+#deals-heading {
+  background-color: #89b556;
+}
+
+.place-name-and-description {
+  display:inline;
+  float:left;
+}
+
+.place-description {
+  font-size: 11px;
+  font-weight: normal;
+  color: black;
+  float:left;
+  margin: -36px 0px;
+}
+
+/*******************************************************************inner1*************************************************/
+
+.banner
+{
+  background:url(/images/banner_bg.jpg) repeat-x left top;
+  border-top:#fff 1px solid;
+  border-bottom:#e0dfdf 1px solid;
+  height:73px;
+  padding:32px 0;
+}
+
+.banner_area
+{
+  background:url(/images/banner_area_bg.png) no-repeat left top;
+  width:847px;
+  height:58px;
+  margin:0 auto;
+  padding-left:17px;
+  padding-top:16px
+}
+
+.banner_area label
+{
+  line-height:41px;
+  color:#979796;
+  font-size:24px;
+  font-weight:bold;
+  padding-right:8px;
+  float:left;
+}
+
+.list_menu
+{
+  height:41px;
+  width:190px;
+  float:left;
+  font-size:24px;
+  font-weight:bold;
+  line-height:41px;
+  padding-left:6px;
+  color:#31b2e5;
+  background:#fff;
+  margin-right:8px;
+  position:relative;
+  border:#cccccc 1px solid;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  behavior:url(PIE.htc);
+}
+
+.form_field
+{
+  background:url(/images/form_field_bg.png) no-repeat left top;
+  height:41px;
+  width:236px;
+  float:left;
+  font-size:24px;
+  color:#049DE5;
+  font-weight:bold;
+  padding:0 10px;
+  line-height:41px;
+  margin-right:10px;
+  border:none;
+}
+
+.button
+{
+  background:url(/images/button.png) no-repeat left top;
+  height:38px;
+  width:120px;
+  border:none;
+  float:left;
+}
+
+.content.nopadd
+{
+  background:#fff;
+  padding:0 0 0 0;
+  border-bottom:none;
+}
+
+.content_left.padd
+{
+  padding-bottom:25px;
+}
+
+.block
+{
+  height:52px;
+  line-height:52px;
+  border-bottom:#e0dfdf 1px solid;
+}
+
+.block img
+{
+  padding-left:6px;
+}
+
+.block p
+{
+  font-size:14px;
+  color:#049de5;
+  font-weight:bold;
+  text-shadow:#fff 1px 1px 0;
+}
+
+.block p strong
+{
+  color:#4d4d4d;
+  font-weight:normal;
+  font-size:14px;
+}
+
+.block p a
+{
+  color:#049de5;
+  text-decoration:none;
+  padding-left:20px;
+  padding-right:20px;
+  display:block;
+}
+
+.block p a:hover, .block p a.active
+{
+  color:#ee941f;
+  background:#fff1df url(/images/hover_bg.jpg) no-repeat right top;
+}
+
+.sidebar_map
+{
+  padding: 19px 0 18px 19px;
+  border-bottom:#e0dfdf solid 1px;
+}
+
+.sidebar_txt
+{
+  padding:20px 28px 0 19px;
+}
+
+.sidebar_txt h3
+{
+  font-size:18px;
+  color:#4d4d4d;
+  padding-bottom:14px;
+}
+
+.sidebar_txt h4
+{
+  font-size:16px;
+  color:#4d4d4d;
+  text-decoration: underline;
+  padding-bottom:14px;
+}
+
+.sidebar_txt p
+{
+  font-size:14px;
+  color:#33afea;
+  line-height:18px;
+  padding-bottom:18px;
+}
+
+
+/* Custom additions */
+span.twitter-deal {
+  color: green;
+}
+
+.sidebar_block
+{
+  border-bottom:#e0dfdf solid 1px;
+}
+
+.sidebar_txt a
+{
+  font-size:14px;
+  color:#33afea;
+  line-height:18px;
+  padding-bottom:18px;
+}
+
+.sidebar_txt a:hover
+{
+  color:#ee941f;
+}
+
+span.distance-from
+{
+  font-style: italic;
+  font-size: 0.9em;
+  float: right;
+}
+
+.input_form
+{
+  width:847px;
+  margin:0 auto;
+  padding-left:17px;
+  padding-top:16px
+}
+
+.input_form h2
+{
+  line-height:41px;
+  color: #049DE5;
+  font-size:36px;
+  font-weight:bold;
+  padding-right:8px;
+  margin-bottom: 15px;
+}
+
+.input_form form
+{
+  border-top: 2px solid darkgray;
+  border-bottom: 2px solid darkgray;
+  padding-bottom: 10px;
+}
+
+.input_form p
+{
+  clear: both;
+}
+
+.input_form p.inline {
+  display:inline;
+  float:left;
+  clear:none;
+}
+
+.input_form label
+{
+  line-height:41px;
+  color:#979796;
+  font-size:24px;
+  font-weight:bold;
+  padding-right:8px;
+}
+
+.input_form .form_field
+{
+  margin-bottom: 20px;
+}
+
+.input_form .form_checkbox
+{
+  margin-bottom: 20px;
+}
+
+.input_form .checkbox_label
+{
+  margin-left: 10px;
+}
+
+.input_form .submit_button
+{
+  color:black;
+}
+
+.sign_in_links
+{
+  margin-top: 10px;  
+}
+
+.sign_in_links li
+{
+  padding-top: 10px;
+}
+
+.sign_in_links li a
+{
+  text-decoration:underline;
+  font-size:18px;
+  color:#979796;
+}
+
+.block p a.inline
+{
+  float: right;
+  color: #ee941f;
+}
+
+div#maps {
+ width: 322px; 
+ height: 332px;
+}
+
+.pac-item
+{
+  color:#049DE5;
+}
+
+#twitter-status .follow-link {
+  float: right;
+  font-style: normal;
+  font-size: 1.0em;
+}
+
+#twitter-status .follow-link a {
+  text-decoration: underline;
+  color: gray;
+}
+
+#twitter-status .tweeted-at {
+  font-style: normal;
+  font-size: 1.0em;
+}
+
+#map_canvas {
+  width: 560px;
+  height: 368px;
+  margin-bottom: 20px;
+  float: left;
+}
+
+.twitter_box .follow-link
+{
+  color: #CECECE;
+  float: right;
+  padding-top: 1px;
+}
+
+.twitter_box .follow-link a
+{
+  color: #CECECE;
+  text-decoration: underline;
+  float: right;
+}
+
+.twitter_box .tweeted-at
+{
+  float: left;
+}
+
+#directions-sidebar
+{
+  display: none;
+}
+
+#directions-panel-detail
+{
+  font-size: 14px;
+  color: #979796;
+  padding: 20px;
+}
+
+#mentions-panel ul.content
+{
+  padding: 0;
+  border: none;
+}
+
+.page_navigation
+{
+  padding: 16px 30px 12px 0;
+  border-bottom: #E0DFDF 1px solid;
+  text-align: right;
+}
+
+.page_navigation a
+{
+  font-size:14px;
+  color:#9e9e9d;
+  padding:0 5px;
+}
+
+.page_navigation a:hover, .page_navigation a.active_page
+{
+  color:#38b6e8;
+  text-decoration:underline;
+}
+
+.page_navigation a.previous_link, .page_navigation a.next_link
+{
+  font-weight: bold;
+}
+
+#deal-panel p
+{
+  line-height:18px;
+  padding-bottom:18px;
+}
+
+#deal-panel p a
+{
+  padding: 20px 42px 18px 20px;
+  font-size:14px;
+  color:#33afea;
+}
+
+#deal-panel a:hover
+{
+  color:#ee941f;
+}
+
+#deal-panel h2
+{
+  border-bottom: none;
+}
+
+#deal-panel
+{
+  border-bottom: #E0DFDF 1px solid;
+  margin-bottom: 10px;
+}
+
+/* Alternative form fields without background url needed */
+
+.input_form_field
+{
+  height: 36px;
+  width: 236px;
+  float: left;
+  font-size:24px;
+  color:#049DE5;
+  font-weight:bold;
+  padding:0 10px;
+  line-height:36px;
+  margin-right:10px;
+  margin-bottom: 10px;
+}
+
+#location_form .input_form_field {
+  width: 500px;
+}
+
+#location_form p#reference textarea {
+  height: 90px;
+}
+span.powered-by {
+  font-size: 10px;
+}
+
+span.powered-by img {
+  margin-bottom: -1px;
+  height: 10px;
+}
+
+textarea.input_form_field
+{
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.input_yes_no_field
+{
+  font-size:24px;
+  color:#049DE5;
+  height: 36px;
+  float: none;
+  font-weight:bold;
+  padding:0 10px;
+  line-height:36px;
+  margin-right:10px;
+  margin-bottom: 10px;
+}
+
+.input_list_menu
+{
+  height:36px;
+  width:190px;
+  float:left;
+  font-size:24px;
+  font-weight:bold;
+  line-height:36px;
+  padding-left:6px;
+  color:#31b2e5;
+  margin-right:8px;
+  margin-top: 8px;
+  background:#fff;
+  margin-right:8px;
+  position:relative;
+  border:#cccccc 1px solid;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  behavior:url(PIE.htc);
+}
+
+#event_flyer {
+  width: 300px;
+  margin-top: 18px;
+}
+
+.event-flyer-link {
+  margin-bottom: 10px;
+}
+
+
+li.event-flyer p {
+  display:inline;
+  margin-right: 78px;
+  margin-top: -36px;
+  font-size: 18px;
+  float:right;
+}
+li.event-flyer p a {
+  text-decoration: underline;
+}
+
+#error_explanation
+{
+  border-bottom: 2px solid darkgray;
+  padding-bottom: 5px;
+}
+
+#error_explanation li
+{
+  color: red;
+  font-size: 14px;
+}
+/* Styles used for table lists */
+.list
+{
+  color:#049DE5;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.list table
+{
+  margin: auto;
+  border: 1px solid darkgray;
+}
+
+.list table th
+{
+  color: white;
+  background-color:#ee941f;
+}
+
+.list table td
+{
+  padding: 10px;
+  border: 1px dotted darkgray;
+}
+
+.list table th
+{
+  padding: 10px;
+  border: 1px solid darkgray;
+}
+
+.list a
+{
+  color: gray;
+  text-decoration: underline;
+}
+
+.list td.actions
+{
+  white-space: nowrap;
+}
+
+.list h2
+{
+  line-height:41px;
+  color: #049DE5;
+  font-size:36px;
+  font-weight:bold;
+  padding-right:8px;
+  margin-bottom: 15px;
+}
+
+.list .input_form form
+{
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.list .pagination
+{
+  text-align: center;
+  margin: 10px auto 10px auto;
+}
+
+.list .pagination a
+{
+  margin: 10px;
+}
+
+.input_form .role_label
+{
+  font-size: 16px;
+}
+
+.input_form .role_checkbox
+{
+  margin: auto 10px 14px 10px;
+}
+
+.input_form #user_email
+{
+  width: 400px;
+}
+
+p.event-date
+{
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h3.venue
+{
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+p#event-state {
+  margin-top: 10px;
+}
+
+#user_new .input_list_menu {
+  width: 258px;
+  margin-top: -8px;
+}
+
+#tweet-this, #favorite-this {
+  float:right;
+  padding: 10px;
+  margin-top:-10px;
+  
+}
+
+.centered {
+  text-align: center;
+}
+
+a#add_to_calendar {
+  float:right;
+  margin-right: 20px;
+}
+
+div#places-list div.expanded {
+  display: none;
+}
+
+p#places-list-bottom {
+  margin: 20px 0px 0px 20px;
+}
+
+p#places-list-bottom a
+{
+  font-size: 14px;
+  font-weight: bold;
+  color:#31b2e5;
+  text-decoration: underline;
+}
+
+a#show-less-places {
+  display: none;
+}
+
+#places-list img.profile-image {
+  float:left;
+  height: 48px;
+  width: 48px;
+  margin: 4px 10px 0px -4px;
+}
+
+span.deal-merchant-name {
+  font-size: 80%;
+  padding-left: 10px;
+}

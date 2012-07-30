@@ -1,0 +1,346 @@
+html { height: 100% }
+body { height: 100%; margin: 0; padding: 0; }
+
+#map_canvas {
+    width: 550px;
+    height: 550px;
+    float: left;
+}
+
+#detail #map_canvas {
+    margin: 0px 10px 0px 10px;
+}
+
+#directions-panel {
+    display: none;
+}
+
+#directions-panel {
+    width: 340px;
+    float: left;
+}
+
+#people_saying {
+  float: right;
+  width: 332px;
+  height: 542px;
+  overflow: hidden;
+  border: 2px solid #DDDDDD;
+  padding: 2px;
+  margin-bottom: 10px;
+}
+
+body {line-height:1.5;background:none !important;}
+
+body {font-size:75%;color:#222;background:none !important;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
+
+
+#detail {
+    width:910px; margin:0 auto;
+}
+
+
+#directions {
+    float: left;
+}
+
+
+body {
+  position: relative;
+}
+
+#content {
+  width: 640px;
+  padding: 8px;
+  background-color: #eeeeff;
+  border: 1px solid #000066;
+}
+
+#svPanel {
+  width: 638px;
+  height: 319px;
+  position: relative;
+}
+
+#status {
+  position: absolute;
+  top: 120px;
+  left: 0px;
+  width: 638px;
+  text-align: center;
+  font: 32pt sans-serif;
+  color: #666666;
+  background-color: white;
+}
+
+#instruction {
+  position: absolute;
+  top: 295px;
+  left: 0px;
+  width: 638px;
+  text-align: center;
+  font: 16pt sans-serif;
+  color: #eeeeee;
+  display: none;
+}
+
+#svPanel, #directions, #map {
+  border: 1px solid black;
+  background-color: white;
+}
+
+#streetview {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 638px;
+  height: 319px;
+}
+
+#progressBorder {
+  position: relative;
+  width: 638px;
+  height: 10px;
+  margin: 2px 0px 2px 0px;
+  border: 1px solid #000066;
+  background-color: white;
+  overflow: hidden;
+}
+
+#progressBar {
+  position: absolute;
+  background-color: #000066;
+  width: 636px;
+  height: 8px;
+  top: 1px;
+  right:1px;
+}
+
+#map {
+  width: 317px;
+  height: 317px;
+  margin-right: 1px;
+  overflow: hidden;
+}
+
+#directions {
+  width: 317px;
+  height: 400px;
+  margin-left: 1px;
+  position: relative;
+  overflow: auto;
+}
+
+.waypoint {
+  position: relative;
+  background-color: #eeeeee;
+  border: 1px solid #666666;
+  padding: 6px;
+  margin: 4px;
+  font: 10pt sans-serif;
+}
+
+.letterIcon {
+  width: 24px;
+  height: 38px;
+  background-image: none;
+}
+
+.waypointAddress {
+  position: absolute;
+  top: 17px;
+  left: 32px;
+}
+
+#summary {
+  padding: 4px;
+  font: 10pt sans-serif;
+}
+
+.dstep {
+  border-top: 1px solid #666666;
+  padding: 4px;
+  padding-left: 8px;
+  font: 10pt sans-serif;
+  margin-left: 4px;
+  margin-right: 4px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.label {
+  width: 52px;
+  text-align: right;
+  font: 12pt sans-serif;
+  float: left;
+  position: relative;
+  top: 4px;
+  margin-right: 5px;
+}
+
+.input {
+  float: left;
+  width: 252px;
+  text-align: left;
+}
+
+.controls {
+ clear: both;
+ padding: 4px;
+}
+
+#speed {
+  float: left;
+}
+
+#buttons {
+ float: right;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  vertical-align: top;
+}
+
+div#header-logo {
+  display:inline;
+  float:left;
+  margin-left: 7px;
+}
+
+div#detail-heading-wrapper {
+  display: inline;
+}
+
+div#detail-headings {
+  display:inline;
+  margin-top: 10px;
+  margin-left: 20px;
+  float:left;
+}
+
+div#detail-headings h2 {
+  display:inline;
+  float:left;
+}
+
+div#detail-headings h3 {
+  display:inline;
+  font-style: italic;
+  font-size: 1.0em;
+  margin-top: -20px;
+  margin-left: 10px;
+  float:left;
+}
+
+div#detail-heading-wrapper a{
+  margin-top: 28px;
+  margin-right: 5px;
+  float: right;
+}
+
+div#last-tweet {
+  float:left;
+  width: 544px;
+  border: 2px solid #DDDDDD;
+  padding: 7px;
+  margin-bottom: 10px;
+}
+
+div#last-tweet img {
+  float:left;
+  margin-right: 20px;
+}
+div#last-tweet span {
+  font-weight: bold;
+}
+
+div#last-post {
+  float:right;
+  border: 2px solid #DDDDDD;
+  padding: 7px;
+  margin-bottom: 10px;
+  width: 322px;
+  height: 56px;
+}
+
+div#last-post img {
+  float: left;
+  margin-right: 20px;
+  height: 48px;
+}
+
+div#last-post span {
+  font-weight: bold;
+}
+
+li.twitter-mention {
+  border-bottom: none;
+  margin-bottom: 4px;
+  padding: 4px 4px 2px 4px;
+}
+
+div#mentions-container ul.content {
+  height: 418px;
+  overflow: hidden;
+}
+
+ul.content li.twitter-mention:nth-child(odd) { background:#e5ecf9; }
+
+li.twitter-mention div.img-wrapper {
+  width: 48;
+  margin-right: 4px;
+  float:left;
+}
+
+li.twitter-mention p {
+  display:inline;
+  float:left;
+  width: 256px;
+  margin: 0 0 0.5em;
+}
+
+li.twitter-mention span.tweeted-at {
+  float: right;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+li.twitter-mention span.mentioner {
+  font-weight: bold;
+}
+
+div#mentions-container ul.content {
+  margin: 0 0.5em 1.5em 0;
+  padding-left: 0.5em;
+  height: 428px;
+}
+
+.page_navigation, .alt_page_navigation{
+  padding-bottom: 10px;
+  margin-top: -6px;
+}
+
+div.page_navigation a, div.alt_page_navigation a{
+  padding:3px 5px;
+  margin:2px;
+  color:white;
+  text-decoration:none;
+  float: left;
+  font-family: Tahoma;
+  font-size: 12px;
+  background-color:#DB5C04;
+}
+
+.active_page{
+  background-color:white !important;
+  color:black !important;
+}	
+
+div.ad-container {
+  clear: both;
+  margin-left: 54px;
+}

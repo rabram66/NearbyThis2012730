@@ -1,0 +1,28 @@
+<script>
+  var latitude = <%= session[:search].blank? ? @coordinates[0] : session[:search][0] %>;
+  var longitude = <%= session[:search].blank? ? @coordinates[1] : session[:search][1] %>;
+
+
+  function initialize() {
+    var defaultBounds = bounds(latitude, longitude);
+    var input = document.getElementById('searchTextField');
+    var autocomplete = new google.maps.places.Autocomplete(input, {bounds: defaultBounds});
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+   
+  (function () {    
+    google.setOnLoadCallback(function () {      
+      <% if session[:search].blank? %>
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function (position) {
+            longitude = position.coords.longitude;
+            latitude = position.coords.latitude;
+            window.location = "/search?lng=" + longitude + "&lat=" + latitude;
+          });      
+        }
+      <% end %>
+      google.setOnLoadCallback(initialize);
+    });
+  })();
+</script>

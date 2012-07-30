@@ -1,0 +1,19 @@
+guest: 
+  email: guest@test.com
+  encrypted_password: abcdef1
+  roles_mask: 1 # guest
+
+user: 
+  email: user@test.com
+  encrypted_password: abcdef1
+  roles_mask: 2 # guest
+
+promoter: 
+  email: promoter@test.com
+  encrypted_password: abcdef1
+  roles_mask: 4 # promoter
+
+admin: 
+  email: user1@test.com
+  encrypted_password: abcdef1
+  roles_mask: 8 # admin

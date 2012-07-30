@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= title_tag %>
+    <title>NearbyThis-Homepage</title>
+    <meta name="description" content="Find great places to Eat, Shop and Relax nearby and get deals and specials on your computer or phone." />
+    <%= stylesheet_link_tag 'style' %>
+    <%= yield :stylesheets %>  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <%= javascript_include_tag 'admin' %>
+    <%= yield :javascripts %>
+    <%= csrf_meta_tag %>
+    <%= yield :head %>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header"><!--header start-->
+        <div class="logo"><%= link_to image_tag("logo.png"), root_path %></div>
+          <div class="top_nav">
+            <ul>
+              <li><%= link_to "HOME", root_path %></li>
+              <% if !current_user %>
+                <li><%= link_to "LOGIN", new_user_session_path %></li>
+                <li><%= link_to "SIGNUP", new_user_registration_path %></li>
+              <% else %>
+                <% if can? :manage, Event %>
+                  <li><%= link_to "EVENTS", events_path %></li>
+                <% end %>
+                <% if can? :manage, Location %>
+                  <li><%= link_to "LOCATIONS", locations_path %></li>
+                <% end %>
+                <% if can? :manage, User %>
+                  <li><%= link_to "USERS", users_path %></li>
+                <% end %>
+                <li><%= link_to "LOGOUT", destroy_user_session_path, :method => :delete %></li>
+              <% end %>
+            </ul>
+          </div>
+        <div class="clear"></div>
+      </div><!--header end-->
+
+      <%= yield %>
+
+    </div><!--wrapper end-->
+  
+  </body>
+</html>

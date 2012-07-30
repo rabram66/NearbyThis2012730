@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%= title_tag %>
+    <title>NearbyThis-Homepage</title>
+    <meta name="description" content="Find great places to Eat, Shop and Relax nearby and get deals and specials on your computer or phone." />
+
+    <%= stylesheet_link_tag 'style2' %>
+    <link rel="stylesheet" href="/javascripts/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+
+    <%= yield :stylesheets %>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="http://www.google.com/jsapi?key=ABQIAAAAhLOpZfesDeMKWC3zGdB4BxRyAQIOZcmWQaZgGjJb-w1DbZAmsxTfbS2hwencPWx3W54SemwGmRyFwA"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
+
+    <%= javascript_include_tag 'application', 'jquery.pjax', 'fancybox/jquery.fancybox.pack', 'spin.min' %>
+
+    <%= render :partial => '/shared/google_analytics' %>
+    <%= csrf_meta_tag %>
+    <%= yield :head %>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  </head>
+
+  <body>
+
+    <%= render "script" %>
+
+    <div class="wrapper inner1_cont">
+
+      <div class="header_wrapper"> 
+        <div class="container"> 
+          <div id="header">
+            <div class="logo">
+              <%= link_to image_tag("logo.jpg", :width => 195, :height => 141), root_path %>
+            </div>
+            <p id='search_instruction'>Enter the name of a local shopping mall to get started.</p>
+            <form id='place_search' class="search_box" action="/" method="get">
+              <%= text_field_tag :search, @search, :id => "searchTextField", :class => 'inpttxt flt_Lt', :placeholder => "Enter Address, Neighborhood, City or Zip" %>
+              <input id='search_button' type="button" value="go" class="gobtn flt_Lt"/>
+              <%= hidden_field_tag :location_type, @location_type, :id => 'location_type' %>
+              <div class="clear_0">&nbsp;</div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="content_wrapper"> 
+        <div class="container"> 
+
+          <div class="main_content">
+            <div class="lft_section flt_Lt">
+              <% cache( "search_#{@location_type}_#{@coordinates.join('_')}", :expires_in => 10.minutes) do %>
+                <%= render :partial => '/places/left_section' %>
+              <% end %>
+            </div>
+            <div id='loading'></div>
+            <div id='detail-content' class="rgt_section flt_Rt">
+              <%= yield %>
+              <%= render :partial => 'shared/right_ad_container' %>
+            </div>
+            <div class="clear_0">&nbsp;</div>
+          </div>
+
+          <!-- javascript for feedback link -->
+          <script type="text/javascript">
+            var _usrp = {
+            type: "inline",
+            company: "nearbythis",
+            host: "nearbythis.userrules.com",
+            mode: "advanced",
+            sso: {},
+            getVisitorId: function() {return "";},
+            getAdditionalParams: function() {return "";}
+            };
+
+            (function(D) {
+            var _usr = D.createElement("script"), s = D.getElementsByTagName("script")[0];
+            _usr.type = "text/javascript"; _usr.async = true;
+            _usr.src = ("https:" == D.location.protocol ? "https" : "http" ) + "://dtkm4pd19nw6z.cloudfront.net/js/userrules/9a41a826e957127b4e5bfc7d140e45c4/feedback.canary.js";
+            s.parentNode.insertBefore(_usr, s);
+            })(document);
+          </script>
+
+          <div class="footer">
+            <p style="text-align:center;">
+              <a href="/about" class='pjax'>About</a>
+              <a href="/advertise" class='pjax'>Advertise</a>
+               <a href="/press" class='pjax'>Press</a>
+              <a href="http://nearbythis.info/blog" target="_blank">Blog</a>
+              <a href="javascript: void(0);" onclick="USR.Main.show(); return false;">Feedback</a>
+              <%= link_to "Admin", new_user_session_path %>
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+
+</html>

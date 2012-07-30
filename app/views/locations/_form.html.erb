@@ -1,0 +1,87 @@
+<%= form_for @location, :html => {:id => "location_form", :name => "location_name"} do |f| %>
+  <% if @location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+      <ul>
+        <% @location.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" id="bus_name">
+    * <%= f.label :name, "Business name" %><br />
+    <%= f.text_field :name, :class => 'input_form_field' %>
+  </div>
+
+  <p>
+    <%= f.label :active %><br/>
+    <%= f.check_box :active, :class => 'input_form_field' %>
+  </p>
+
+  <p>
+    <%= f.label :twitter_name %><br />
+    <%= f.text_field :twitter_name, :class => 'input_form_field' %>
+    <%= button_tag "Update Profile Image and Description", :id => 'update-twitter-profile' %>
+  </p>
+
+  <p>
+    <%= f.label :profile_image_url %><br/>  
+    <%= f.text_field :profile_image_url, :class => 'input_form_field' %>
+    <%= image_tag @location.profile_image_url if @location.profile_image_url %>
+  </p>
+
+  <p id='reference'>
+    <%= f.label :description %><br/>
+    <%= f.text_area :description, :class => 'input_form_field' %>
+  </p>
+
+  <%= render :partial => 'shared/address_form', :locals => {:f => f} %>
+
+  <p>
+    <%= link_to( "Map Location", google_map_url(@location), :target => :new ) %>
+  </p>
+
+  <p>
+    <%= f.label :phone %><br/>  
+    <%= f.text_field :phone, :class => 'input_form_field' %>
+  </p>
+
+  <p>
+    <%= f.label :email %><br/>
+    <%= f.text_field :email, :class => 'input_form_field' %>
+  </p>
+
+  <p>
+    * <%= f.label :types %><br/>
+    <%= grouped_collection_select(
+      :location, :types, LocationCategory.all, :types, :name, :to_s, :humanize,
+      {:include_blank => true}, html_options = {}) %>
+  </p>
+
+  <p>
+    <%= f.label :facebook_page_id %><br />
+    <%= f.text_field :facebook_page_id, :class => 'input_form_field' %>
+  </p>
+
+  <p id='reference'>
+    <%= f.label :reference, "Google Places Reference ID" %><br/>
+    <%= f.text_area :reference, :disabled => true, :class => 'input_form_field' %>
+  </p>
+
+  <p id='verified'>
+    <%= f.label :verified %><%- if @location.verified? %>
+      by <%= @location.verified_by %> on <%= @location.verified_on %>
+    <%- end %>
+    <br/>
+    <%= f.check_box :verified, :class => 'input_form_field' %><br/>
+    <%= f.hidden_field :verified_on, :value => @location.verified_on || Date.today %>
+    <%= f.hidden_field :verified_by, :value => @location.verified_by || current_user.email %>
+  </p>
+
+
+  <p class="actions">
+    <%= f.submit %>
+  </p>
+<% end %>
